@@ -1,22 +1,53 @@
-.App {
+h1 {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
+.post {
+  padding: 10px;
+  border: 1px solid black;
+  margin-bottom: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.posts {
+  width: 60%;
+  margin: 0 auto;
+}
+
+input{
+  width: calc(80% - 22px);
+  padding: 10px;
+}
+
+.add{
+  width: calc(20% - 2px);
+  padding: 10px;
+  background: #1DA1F2;
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.delete {
+  padding: 10px;
+  background: #1DA1F2;
+  color: white;
+}
+
+h3 {
+  color:#1DA1F2
+}
+
+img{
+  width:200px;
+  height: 200px;
+}
+
+.myposts{
+  width:20%;
+  height:40px;
+  color: #1DA1F2;
+  padding: 5px;
+  margin: 20px auto;
+}
+
+.containerMyPosts {
+  width: 60%;
+  margin: 0 auto;
 }
