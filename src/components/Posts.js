@@ -1,18 +1,15 @@
 import React from 'react';
-import Image from "./Image";
+//import Image from "./Image";
 
-const Posts = ({posts, deletePost}) => {
-    const mystyle = {
-        width:"60%",
-        margin:"0 auto"
-    }
+const Posts = ({posts, deletePost, visible, images}) => {
+   
     return (
-        <div style={mystyle}>
-            <h1>All Posts</h1>
+        <div>
+            {visible ? <h1>All Posts</h1> : <h1>My Posts</h1>}
             {posts.map( post => {
                 return (
                     <div className="post" key={post.id}>
-                        <Image />
+                        {/* <Image images={this.props.images} /> */}
                         <h3>{post.title}</h3>
                         <p>{post.body}</p>
                         <button className="delete" onClick={() => deletePost(post.id)}>Delete Post</button>

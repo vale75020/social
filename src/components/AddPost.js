@@ -27,7 +27,8 @@ export default class AddPost extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const object = {
+   if (this.state.title !== "" && this.state.body !== "") {
+        const object = {
         userId: 4,
         title: this.state.title,
         body: this.state.body
@@ -37,17 +38,18 @@ export default class AddPost extends Component {
     this.setState({
         title: "",
         body:""
-    })
+    })}
+    else {return alert("All fields are required")}
 }
 
 
   render() {
     return (
       <div className="posts">
-        <input className="input" type="text" name="title" onChange={this.handleChange} value={this.state.title} placeholder="enter title"/>
+        <input className="input" type="text" name="title" onChange={this.handleChange} value={this.state.title} placeholder="enter title" />
         <input className="input" type="text" name="body" onChange={this.handleChange} value={this.state.body} placeholder="enter comment"/>
         <button className="add" onClick={e => this.handleSubmit(e)}>
-          Add Post
+          ADD POST
         </button>
       </div>
     );
