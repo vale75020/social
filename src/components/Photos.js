@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default class Photos extends Component {
   state = {
-    photos: [],
+    users: [],
     user: ""
   };
 
@@ -13,9 +13,9 @@ export default class Photos extends Component {
       .then(response => {
         console.log(response);
         this.setState({
-          photos: response.data.results
+          users: response.data.results
         });
-        console.log(this.state.photos);
+        console.log(this.state.users);
       })
       .catch(error => {
         console.log(error);
@@ -28,12 +28,12 @@ export default class Photos extends Component {
     console.log(this.state.user);
   };
 
-  handleSubmit = (e, name) => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    let findUser = this.state.photos.filter(x => name === x.name.last);
+    let findUser = this.state.users.filter(user => user.name.last === this.state.user);
     console.log(findUser);
     this.setState({
-      photos: findUser,
+      users: findUser,
       user: ""
     });
   };
@@ -50,14 +50,14 @@ export default class Photos extends Component {
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
         />
-        {this.state.photos.map(photo => {
+        {this.state.users.map(user => {
           return (
-            <div className="photo" key={photo.login.uuid}>
-              <img src={photo.picture.medium} alt={photo.title} />
+            <div className="photo" key={user.login.uuid}>
+              <img src={user.picture.medium} alt={user.title} />
               <h4>
-                {photo.name.title} {photo.name.first} {photo.name.last}
+                {user.name.title} {user.name.first} {user.name.last}
               </h4>
-              <h5>{photo.email}</h5>
+              <h5>{user.email}</h5>
               <p></p>
             </div>
           );
