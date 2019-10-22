@@ -20,7 +20,7 @@
 .rightBlock {
   width: 15%;
   min-width: 200px;
-  margin:0 2%;
+  margin: 0 2%;
 }
 
 h1 {
@@ -72,20 +72,22 @@ img {
 }
 
 .myposts {
-  width: 40%;
+  width: 30%;
   height: 40px;
   color: #1da1f2;
   padding: 5px;
   margin: 20px auto;
+  border-radius: 20px;
 }
 
 .allposts {
-  width: 40%;
+  width: 30%;
   height: 40px;
   background-color: #1da1f2;
   color: white;
   padding: 5px;
   margin: 20px auto;
+  border-radius: 20px;
 }
 
 .containerMyPosts {
@@ -103,7 +105,8 @@ img {
 
 .input-user {
   min-width: 150px;
-  padding:10px;  
+  padding: 10px;
   width: 90%;
-  margin:0 auto;
+  margin: 0 auto;
+  border-radius: 20px;
 }
