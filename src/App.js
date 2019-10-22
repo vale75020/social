@@ -12,7 +12,7 @@ export default class App extends Component {
     isVisible: false
   };
 
-  componentDidMount() {
+  fetch = () => {
     axios
       .get("https://jsonplaceholder.typicode.com/posts")
       .then(response => {
@@ -27,6 +27,10 @@ export default class App extends Component {
       });
   }
 
+  componentDidMount() {
+    this.fetch()
+  }
+
   deletePost = id => {
     console.log(id);
     let updatedPosts = this.state.posts.filter(post => post.id !== id);
@@ -36,6 +40,7 @@ export default class App extends Component {
   addNewPost = post => {
     post.id = Math.random();
     let newPostArray = [...this.state.posts, post];
+    console.log(newPostArray)
     this.setState({
       posts: newPostArray
     });
@@ -48,18 +53,7 @@ export default class App extends Component {
   };
 
   allPosts = () => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then(response => {
-        console.log(response);
-        this.setState({
-          posts: response.data
-        });
-      })
-      .catch(function(error) {
-        // handle error
-        console.log(error);
-      });
+    this.fetch()
       this.setState({isVisible:false})
   }
 
@@ -70,7 +64,7 @@ export default class App extends Component {
 
         <MyPosts postsByUserId={this.postsByUserId} />
         {this.state.isVisible ? <AllPosts allPosts={this.allPosts} /> : null}
-        <AddPost addNewPost={this.AddNewPost} />
+        <AddPost addNewPost={this.addNewPost} />
         <Posts posts={this.state.posts} deletePost={this.deletePost} />
       </div>
     );
