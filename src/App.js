@@ -39,7 +39,7 @@ export default class App extends Component {
 
   addNewPost = post => {
     post.id = Math.random();
-    let newPostArray = [...this.state.posts, post];
+    let newPostArray = [post, ...this.state.posts];
     console.log(newPostArray)
     this.setState({
       posts: newPostArray

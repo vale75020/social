@@ -13,15 +13,17 @@ h1 {
 }
 
 input{
-  width: calc(80% - 22px);
+  width: 100%;
   padding: 10px;
+  margin: 10px auto
 }
 
 .add{
-  width: calc(20% - 2px);
+  width: 40%;
   padding: 10px;
   background: #1DA1F2;
   color: white;
+  margin: 0 30%;
 }
 
 .delete {

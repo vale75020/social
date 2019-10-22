@@ -2,14 +2,17 @@ import React, { Component } from "react";
 
 export default class AddPost extends Component {
   state = {
-    content: ""
+    title: "",
+    body:""
   };
 
   
 
   handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
     this.setState({
-        content: e.target.value
+      [name]: value
     })
   }
 
@@ -26,12 +29,14 @@ export default class AddPost extends Component {
     e.preventDefault()
     const object = {
         userId: 4,
-        body: this.state.content
+        title: this.state.title,
+        body: this.state.body
     }
     console.log(object)
     this.props.addNewPost(object)
     this.setState({
-        content: ""
+        title: "",
+        body:""
     })
 }
 
@@ -39,7 +44,8 @@ export default class AddPost extends Component {
   render() {
     return (
       <div className="posts">
-        <input className="input" type="text" onChange={this.handleChange} value={this.state.content} />
+        <input className="input" type="text" name="title" onChange={this.handleChange} value={this.state.title} placeholder="enter title"/>
+        <input className="input" type="text" name="body" onChange={this.handleChange} value={this.state.body} placeholder="enter comment"/>
         <button className="add" onClick={e => this.handleSubmit(e)}>
           Add Post
         </button>
