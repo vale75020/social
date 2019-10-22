@@ -5,7 +5,8 @@ import Posts from "./components/Posts";
 import AddPost from "./components/AddPost";
 import MyPosts from "./components/MyPosts";
 import AllPosts from "./components/AllPosts";
-import Photos from "./components/Photos";
+import Users from "./components/Users";
+import Photos from './components/Photos'
 
 export default class App extends Component {
   state = {
@@ -18,7 +19,7 @@ export default class App extends Component {
     axios
       .get("https://jsonplaceholder.typicode.com/posts")
       .then(response => {
-        console.log(response);
+        //console.log(response);
         this.setState({
           posts: response.data
         });
@@ -37,7 +38,7 @@ export default class App extends Component {
         this.setState({
           images: response.data
         });
-        console.log(this.state.images);
+        //console.log(this.state.images);
       })
       .catch(error => {
         console.log(error);
@@ -58,7 +59,7 @@ export default class App extends Component {
   addNewPost = post => {
     post.id = Math.random();
     let newPostArray = [post, ...this.state.posts];
-    console.log(newPostArray);
+    //console.log(newPostArray);
     this.setState({
       posts: newPostArray
     });
@@ -67,7 +68,7 @@ export default class App extends Component {
   postsByUserId = post => {
     let postsById = this.state.posts.filter(post => post.userId === 4);
     this.setState({ posts: postsById, isVisible: true });
-    console.log(postsById);
+    //console.log(postsById);
   };
 
   allPosts = () => {
@@ -89,7 +90,7 @@ export default class App extends Component {
         <AddPost addNewPost={this.addNewPost} />
         <div className="container">
           <div className="leftBlock">
-            <Photos />
+            <Users />
           </div>
           <div className="centerBlock">
             <Posts
@@ -99,7 +100,9 @@ export default class App extends Component {
               images={this.state.images}
             />
           </div>
-          <div className="rightBlock"></div>
+          <div className="rightBlock">
+            <Photos />
+          </div>
         </div>
       </div>
     );

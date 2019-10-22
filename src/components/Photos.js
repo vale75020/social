@@ -1,68 +1,40 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react'
+import axios from 'axios';
 
 export default class Photos extends Component {
-  state = {
-    users: [],
-    user: ""
-  };
+    state = {
+        photos: []
+    }
+    
+    componentDidMount() {
+        axios
+          .get("https://picsum.photos/v2/list")
+          .then(response => {
+            console.log(response);
+            this.setState({
+              photos: response
+            });
+            console.log(this.state.photos);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      }
 
-  componentDidMount() {
-    axios
-      .get("https://randomuser.me/api/?results=80")
-      .then(response => {
-        console.log(response);
-        this.setState({
-          users: response.data.results
-        });
-        console.log(this.state.users);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-  handleChange = e => {
-    this.setState({
-      user: e.target.value
-    });
-    console.log(this.state.user);
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    let findUser = this.state.users.filter(user => user.name.last === this.state.user);
-    console.log(findUser);
-    this.setState({
-      users: findUser,
-      user: ""
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <h1>Users</h1>
-        <input
-          className="input-user"
-          type="text"
-          placeholder="search user"
-          value={this.state.user}
-          onChange={this.handleChange}
-          onSubmit={this.handleSubmit}
-        />
-        {this.state.users.map(user => {
-          return (
-            <div className="photo" key={user.login.uuid}>
-              <img src={user.picture.medium} alt={user.title} />
-              <h4>
-                {user.name.title} {user.name.first} {user.name.last}
-              </h4>
-              <h5>{user.email}</h5>
-              <p></p>
+    render() {
+        const accessKey = "0da7b81bfb2aee21a9b9b2e9b2cfed0ce3f5ed081afe76de99ed42c40a660f20";
+        const secretKey = "31016c65591b83d867ffeffcc836cc22a06ad5df970eaff651c8a356d16763e6"
+        return (
+            <div>
+                <h1>Photos</h1>
+                {/* {this.state.photos.map(photo => {
+                    return(
+                        <div>
+                            <img src={photo.url} alt="" />
+                        </div>
+                    )
+                })} */}
             </div>
-          );
-        })}
-      </div>
-    );
-  }
+        )
+    }
 }
