@@ -61,9 +61,8 @@ export default class App extends Component {
     return (
       <div className="App">
         <h1>My Social Network</h1>
-
-        <MyPosts postsByUserId={this.postsByUserId} />
-        {this.state.isVisible ? <AllPosts allPosts={this.allPosts} /> : null}
+        <div className="container-buttons">
+        {this.state.isVisible ? <AllPosts allPosts={this.allPosts} /> : <MyPosts postsByUserId={this.postsByUserId} />}</div>
         <AddPost addNewPost={this.addNewPost} />
         <Posts posts={this.state.posts} deletePost={this.deletePost} />
       </div>

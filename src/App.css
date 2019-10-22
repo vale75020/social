@@ -42,14 +42,32 @@ img{
 }
 
 .myposts{
-  width:20%;
+  width:40%;
   height:40px;
   color: #1DA1F2;
   padding: 5px;
   margin: 20px auto;
 }
 
+.allposts{
+  width:40%;
+  height:40px;
+  background-color: #1DA1F2;
+  color: white;
+  padding: 5px;
+  margin: 20px auto;
+}
+
 .containerMyPosts {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container-buttons {
   width: 60%;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
 }
