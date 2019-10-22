@@ -46,8 +46,8 @@ export default class AddPost extends Component {
   render() {
     return (
       <div className="posts">
-        <input className="input" type="text" name="title" onChange={this.handleChange} value={this.state.title} placeholder="enter title" />
-        <input className="input" type="text" name="body" onChange={this.handleChange} value={this.state.body} placeholder="enter comment"/>
+        <input className="input-post" type="text" name="title" onChange={this.handleChange} value={this.state.title} placeholder="enter title" />
+        <input className="input-post" type="text" name="body" onChange={this.handleChange} value={this.state.body} placeholder="enter comment"/>
         <button className="add" onClick={e => this.handleSubmit(e)}>
           ADD POST
         </button>

@@ -5,7 +5,7 @@ import Posts from "./components/Posts";
 import AddPost from "./components/AddPost";
 import MyPosts from "./components/MyPosts";
 import AllPosts from "./components/AllPosts";
-import Photos from './components/Photos';
+import Photos from "./components/Photos";
 
 export default class App extends Component {
   state = {
@@ -78,32 +78,30 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-         <h1>My Social Network</h1>
-          <div className="container-buttons">
-            {this.state.isVisible ? (
-              <AllPosts allPosts={this.allPosts} />
-            ) : (
-              <MyPosts postsByUserId={this.postsByUserId} />
-            )}
-          </div>
-          <AddPost addNewPost={this.addNewPost} />
+        <h1>My Social Network</h1>
+        <div className="container-buttons">
+          {this.state.isVisible ? (
+            <AllPosts allPosts={this.allPosts} />
+          ) : (
+            <MyPosts postsByUserId={this.postsByUserId} />
+          )}
+        </div>
+        <AddPost addNewPost={this.addNewPost} />
         <div className="container">
-        <div className="leftBlock">
-          <Photos />
-        </div>
-        <div className="centerBlock">
-         
-          <Posts
-            visible={this.state.isVisible}
-            posts={this.state.posts}
-            deletePost={this.deletePost}
-            images={this.state.images}
-          />
-        </div>
-        <div className="rightBlock"></div>
+          <div className="leftBlock">
+            <Photos />
+          </div>
+          <div className="centerBlock">
+            <Posts
+              visible={this.state.isVisible}
+              posts={this.state.posts}
+              deletePost={this.deletePost}
+              images={this.state.images}
+            />
+          </div>
+          <div className="rightBlock"></div>
         </div>
       </div>
-      
     );
   }
 }

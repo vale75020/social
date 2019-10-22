@@ -1,23 +1,27 @@
-.container{
-display:flex;
-justify-content: space-between;
-padding:5px;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5px;
 }
 
-.centerBlock{
-  width:60%;
-  margin:0 auto;
-
+.centerBlock {
+  width: 60%;
+  margin: 0 auto;
+  min-width: 350px;
 }
 
-.leftBlock{
-width:18%;
+.leftBlock {
+  width: 15%;
+  min-width: 200px;
+  margin: 0 2%;
 }
 
-.rightBlock{
-  width:18%;
-  }
-
+.rightBlock {
+  width: 15%;
+  min-width: 200px;
+  margin:0 2%;
+}
 
 h1 {
   text-align: center;
@@ -34,51 +38,51 @@ h1 {
   text-align: center;
 }
 
-input{
+.input-post {
   width: calc(60% - 20px);
   padding: 10px;
   margin: 10px auto;
-  border-radius:20px;
+  border-radius: 20px;
 }
 
-.add{
+.add {
   width: 20%;
-  height:40px;
+  height: 40px;
   padding: 10px;
-  background: #1DA1F2;
+  background: #1da1f2;
   color: white;
   margin: 0 30%;
-  border-radius:20px;
+  border-radius: 20px;
 }
 
 .delete {
   padding: 10px;
-  background:#FF4500;
+  background: #ff4500;
   color: white;
 }
 
 h3 {
-  color:#1DA1F2
+  color: #1da1f2;
 }
 
-img{
-  width:100px;
+img {
+  width: 100px;
   height: 100px;
   border-radius: 30%;
 }
 
-.myposts{
-  width:40%;
-  height:40px;
-  color: #1DA1F2;
+.myposts {
+  width: 40%;
+  height: 40px;
+  color: #1da1f2;
   padding: 5px;
   margin: 20px auto;
 }
 
-.allposts{
-  width:40%;
-  height:40px;
-  background-color: #1DA1F2;
+.allposts {
+  width: 40%;
+  height: 40px;
+  background-color: #1da1f2;
   color: white;
   padding: 5px;
   margin: 20px auto;
@@ -91,7 +95,15 @@ img{
 }
 
 .photo {
-    padding: 10px;
-    border-bottom: 1px solid black;
-    margin-bottom: 5px;
+  padding: 10px;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.input-user {
+  min-width: 150px;
+  padding:10px;  
+  width: 90%;
+  margin:0 auto;
 }
