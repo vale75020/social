@@ -10,11 +10,11 @@ export default class Photos extends Component {
         axios
           .get("https://picsum.photos/v2/list")
           .then(response => {
-            console.log(response);
+            //console.log(response);
             this.setState({
-              photos: response
+              photos: response.data
             });
-            console.log(this.state.photos);
+            // console.log(this.state.photos);
           })
           .catch(error => {
             console.log(error);
@@ -22,18 +22,17 @@ export default class Photos extends Component {
       }
 
     render() {
-        const accessKey = "0da7b81bfb2aee21a9b9b2e9b2cfed0ce3f5ed081afe76de99ed42c40a660f20";
-        const secretKey = "31016c65591b83d867ffeffcc836cc22a06ad5df970eaff651c8a356d16763e6"
         return (
             <div>
                 <h1>Photos</h1>
-                {/* {this.state.photos.map(photo => {
+                {this.state.photos.map(photo => {
                     return(
-                        <div>
-                            <img src={photo.url} alt="" />
+                        <div key={photo.id}>
+                            <img style={{width:"320px", height:"240px"}} src={photo.url} alt="" />
+                            <p>{photo.author}</p>
                         </div>
                     )
-                })} */}
+                })}
             </div>
         )
     }
