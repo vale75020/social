@@ -11,7 +11,7 @@ export default class Users extends Component {
     axios
       .get("https://randomuser.me/api/?results=80")
       .then(response => {
-        //console.log(response);
+        console.log(response);
         this.setState({
           users: response.data.results
         });
@@ -29,9 +29,9 @@ export default class Users extends Component {
     //console.log(this.state.user);
   };
 
-  handleSubmit = (e, userLastName) => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    let findUser = this.state.users.filter(user => user.name.last === userLastName);
+    let findUser = this.state.users.filter(user => user === user.name.last );
     console.log(findUser);
     this.setState({
       users: findUser,
@@ -49,8 +49,8 @@ export default class Users extends Component {
           placeholder="search user"
           value={this.state.user}
           onChange={this.handleChange}
-          onSubmit={this.handleSubmit}
         />
+        <button  onClick={this.handleSubmit}>Search</button>
         {this.state.users.map(user => {
           return (
             <div className="user-photo" key={user.login.uuid}>
