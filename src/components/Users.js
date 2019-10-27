@@ -30,8 +30,9 @@ export default class Users extends Component {
   };
 
   handleSubmit = (e) => {
+    let lastName= this.state.user
     e.preventDefault();
-    let findUser = this.state.users.filter(user => user === user.name.last );
+    let findUser = this.state.users.filter(user => lastName === user.name.last );
     console.log(findUser);
     this.setState({
       users: findUser,
