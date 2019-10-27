@@ -30,9 +30,10 @@ export default class Users extends Component {
   };
 
   handleSubmit = (e) => {
-    let lastName= this.state.user
+    let lastName= this.state.user 
     e.preventDefault();
-    let findUser = this.state.users.filter(user => lastName === user.name.last );
+    // let findUser = this.state.users.filter(user => lastName === user.name.last || lastName === user.name.first);
+    let findUser = this.state.users.filter(user =>  user.name.last.startsWith(lastName) ||  user.name.first.startsWith(lastName));
     console.log(findUser);
     this.setState({
       users: findUser,
@@ -44,6 +45,7 @@ export default class Users extends Component {
     return (
       <div>
         <h1>Users</h1>
+        <div className="user-photo">
         <input
           className="input-user"
           type="text"
@@ -51,7 +53,8 @@ export default class Users extends Component {
           value={this.state.user}
           onChange={this.handleChange}
         />
-        <button  onClick={this.handleSubmit}>Search</button>
+        <button className="search-user" onClick={this.handleSubmit}>Search User</button>
+        </div>
         {this.state.users.map(user => {
           return (
             <div className="user-photo" key={user.login.uuid}>
@@ -59,7 +62,7 @@ export default class Users extends Component {
               <h4>
                 {user.name.title} {user.name.first} {user.name.last}
               </h4>
-              <h5>{user.email}</h5>
+              <h6>{user.email}</h6>
               <p></p>
             </div>
           );

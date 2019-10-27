@@ -65,7 +65,7 @@ export default class App extends Component {
     });
   };
 
-  postsByUserId = post => {
+  postsByUserId = () => {
     let postsById = this.state.posts.filter(post => post.userId === 4);
     this.setState({ posts: postsById, isVisible: true });
     //console.log(postsById);
